@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mustafa Hussein — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue-900: #031225;
+      --blue-800: #06243a;
+      --blue-700: #0a3b57;
+      --blue-600: #1e6fa7;
+      --yellow-600: #ffd166;
+      --yellow-700: #f0b429;
+      --muted-white: rgba(255, 255, 255, 0.87);
+      --muted-soft: rgba(255, 255, 255, 0.72);
+      --maxw: 1200px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(255, 209, 102, 0.06), transparent 8%),
+        radial-gradient(1000px 500px at 95% 85%, rgba(30, 111, 167, 0.12), transparent 10%),
+        linear-gradient(180deg, var(--blue-900), var(--blue-800));
+      color: var(--muted-white);
+      line-height: 1.5;
+      padding: 28px 20px;
+    }
+
+    .wrap {
+      max-width: var(--maxw);
+      margin: 0 auto
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0
+    }
+
+    nav {
+      display: flex;
+      gap: 14px
+    }
+
+    nav a {
+      color: var(--muted-soft);
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 14px
+    }
+
+    nav a:hover {
+      background: linear-gradient(90deg, rgba(255, 209, 102, 0.14), rgba(30, 111, 167, 0.06));
+      color: var(--muted-white)
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 36px;
+      align-items: center;
+      padding: 60px 0
+    }
+
+    .portrait {
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      position: relative;
+      overflow: visible;
+      box-shadow: 0 30px 80px rgba(2, 8, 23, 0.6);
+      display: grid;
+      place-items: center
+    }
+
+    .photo {
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 10px solid rgba(255, 255, 255, 0.06);
+      display: grid;
+      place-items: center;
+      background: linear-gradient(180deg, var(--blue-700), var(--blue-600))
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    section {
+      padding: 48px 0
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(2, 8, 23, 0.45)
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 18px
+    }
+
+    .timeline-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start
+    }
+
+    .timeline-item .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--yellow-600);
+      margin-top: 6px
+    }
+
+    .timeline-item .info h4 {
+      margin-bottom: 6px;
+      color: var(--muted-white)
+    }
+
+    .timeline-item .info p {
+      color: var(--muted-soft);
+      font-size: 14px
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px
+    }
+
+    .skill-card {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 14px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.06))
+    }
+
+    .skill-meta {
+      flex: 1
+    }
+
+    .skill-title {
+      font-weight: 700;
+      color: var(--muted-white);
+      margin-bottom: 6px
+    }
+
+    .skill-desc {
+      color: var(--muted-soft);
+      font-size: 13px
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px
+    }
+
+    .service {
+      padding: 18px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, rgba(255, 209, 102, 0.05), rgba(0, 194, 255, 0.02))
+    }
+
+    .service h4 {
+      color: var(--blue-900);
+      background: var(--yellow-600);
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 10px;
+      font-weight: 700
+    }
+
+    .service p {
+      margin-top: 8px;
+      color: var(--muted-soft)
+    }
+
+    .project-spot {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: center
+    }
+
+    .project-spot .meta h3 {
+      color: var(--yellow-600);
+      margin-bottom: 8px
+    }
+
+    .project-spot .meta p {
+      color: var(--muted-soft)
+    }
+
+    .contact-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, var(--blue-700), #0a3b57)
+    } */
+
+    .contact-banner .cta {
+      gap: 12px;
+      display: flex
+    }
+
+    .contact-banner a {
+      color: var(--yellow-600);
+      text-decoration: none;
+      font-weight: 800
+    }
+
+     footer {
+      padding: 36px 0;
+      text-align: center;
+      color: var(--muted-soft);
+      font-size: 14px
+    }
+
+    /* Creative CTA */
+    #cta {
+      padding: 80px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, var(--blue-900), var(--blue-700), var(--yellow-700));
+      border-radius: 18px;
+      margin-top: 60px;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.5)
+    }
+
+    #cta h2 {
+      font-size: 32px;
+      color: var(--yellow-600);
+      margin-bottom: 14px
+    }
+
+    #cta p {
+      color: var(--muted-white);
+      margin-bottom: 28px;
+      font-size: 18px
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap
+    }
+
+    .btn-cta {
+      padding: 16px 28px;
+      border-radius: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 16px
+    }
+
+    .btn-cta.yellow {
+      background: linear-gradient(90deg, var(--yellow-600), var(--yellow-700));
+      color: var(--blue-900);
+      box-shadow: 0 0 20px rgba(240, 180, 41, 0.4)
+    }
+
+    .btn-cta.blue {
+      background: linear-gradient(90deg, var(--blue-600), #0a84c2);
+      color: white;
+      box-shadow: 0 0 20px rgba(14, 118, 195, 0.4)
+    }
+
+    .btn-cta:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 35px rgba(255, 255, 255, 0.2)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">MH</div>
+        <div>
+          <div class="name">Mustafa Hussein</div>
+          <div class="role">Mobile Developer • AI & UX</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <a href="https://www.linkedin.com/in/mustafa-hussein-95bb08254" target="_blank">LinkedIn</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="intro">
+        <h1>Mustafa Hussein</h1>
+        <h2>Computer Science Graduate — Mobile Apps • AI • UX</h2>
+        <p>I craft intuitive, user-centered mobile experiences using Flutter and Kotlin, infused with AI where it adds
+          real value. As an I-type (DISC), I bring energy, empathy, and collaboration — I design to connect and build
+          products that people love to use.</p>
+      </div>
+      <div class="portrait">
+        <div class="photo">
+          <!-- 🔶 PLACE YOUR IMAGE HERE -->
+          <img src="Mustafa.jpg" alt="Mustafa Hussein">
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h2>About</h2>
+      <div class="card">
+        <p>I’m Mustafa — a recent CS graduate from FCIS, Ain Shams University. I build polished mobile applications and
+          design experiences that are practical and delightful. My background combines hands-on app development (Flutter
+          & Kotlin), applied AI (NLP & recommendation systems), and leadership experience in PR and community
+          initiatives. I’m focused on turning ideas into usable products that improve learning and collaboration for
+          tech communities.</p>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <h2>Education & Achievements</h2>
+      <div class="card timeline">
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="info">
+            <h4>B.Sc. Computer Science — FCIS, Ain Shams University (Graduated 2025)</h4>
+            <p>Graduation Project: FCIS F1 — AI-Powered CS Community Platform • Grade: A</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="info">
+            <h4>Leadership & Awards</h4>
+            <p>Ideal Leader Award (two leadership camps), Led PR & Marketing for Support ASU and ASU Career Center
+              events.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="dot"></div>
+          <div class="info">
+            <h4>Additional Training</h4>
+            <p>Digital Egypt Pioneers Initiative — Android Development Track (Java & Kotlin) • UpSkill Program • ML &
+              NLP workshops.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2>Core Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card card">
+          <div
+            style="width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--blue-600),#0a84c2);display:grid;place-items:center;font-weight:800;font-size:20px">
+            90%</div>
+          <div class="skill-meta">
+            <div class="skill-title">Mobile Development</div>
+            <div class="skill-desc">Flutter, Kotlin, Java — building production-ready apps and smooth UX flows.</div>
+          </div>
+        </div>
+        <div class="skill-card card">
+          <div
+            style="width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--yellow-600),var(--yellow-700));display:grid;place-items:center;font-weight:800;font-size:20px;color:var(--blue-900)">
+            80%</div>
+          <div class="skill-meta">
+            <div class="skill-title">AI & NLP</div>
+            <div class="skill-desc">Modeling for text moderation, topic classification, and recommendation pipelines
+              using Python & DL.</div>
+          </div>
+        </div>
+        <div class="skill-card card">
+          <div
+            style="width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--blue-700),var(--blue-600));display:grid;place-items:center;font-weight:800;font-size:20px">
+            75%</div>
+          <div class="skill-meta">
+            <div class="skill-title">Software Engineering</div>
+            <div class="skill-desc">OOP, Data Structures, Testing, version control and clean architecture.</div>
+          </div>
+        </div>
+        <div class="skill-card card">
+          <div
+            style="width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--yellow-600),var(--yellow-700));display:grid;place-items:center;font-weight:800;font-size:20px;color:var(--blue-900)">
+            85%</div>
+          <div class="skill-meta">
+            <div class="skill-title">Leadership & Communication</div>
+            <div class="skill-desc">Team leadership, PR, event organization, and mentoring junior peers.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <h2>Services</h2>
+      <div class="services">
+        <div class="service card">
+          <h4>📱 Custom Mobile App Development</h4>
+          <p>Design and develop user-friendly, high-performance mobile apps using Flutter & Kotlin tailored to your
+            goals.</p>
+        </div>
+        <div class="service card">
+          <h4>⚡ Cross-Platform Solutions</h4>
+          <p>Efficient development strategies to deliver apps on Android & iOS with consistent UX and performant code.
+          </p>
+        </div>
+        <div class="service card">
+          <h4>🔌 API Integration & Backend</h4>
+          <p>Connect apps to Flask backends, REST APIs, and third-party services for secure and scalable functionality.
+          </p>
+        </div>
+        <div class="service card">
+          <h4>🧠 Smart Features (AI & NLP)</h4>
+          <p>Smart search, content moderation, and personalized recommendations using ML & NLP techniques.</p>
+        </div>
+        <div class="service card">
+          <h4>🔄 Optimization & Maintenance</h4>
+          <p>Refactoring, performance tuning, and update maintenance to keep your app stable and fresh.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2>Project Highlights</h2>
+      <div class="card project-spot">
+        <div class="meta">
+          <h3>FCIS F1 — AI-Powered CS Community Platform</h3>
+          <p>Graduation project that connects students with alumni and uses AI to moderate content, recommend resources,
+            and extract skills from courses and playlists. Built with Flutter (mobile) and Flask (backend). Led the team
+            to a Grade A.</p>
+          <p class="muted">Role: Team Leader • Tech: Flutter, Flask, Python, Deep Learning, NLP</p>
+        </div>
+        <div class="meta">
+          <h3>PaySky E-commerce App</h3>
+          <p>A modern e-commerce Android app built with Kotlin using MVVM architecture. Features product listings, cart,
+            and secure Stripe payment integration.</p>
+          <p class="muted">Role: Developer • Tech: Kotlin, MVVM, Stripe</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT BANNER
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact-banner">
+        <div>
+          <div style="font-weight:800;font-size:18px;color:var(--muted-white)">Let's build something great together
+          </div>
+          <div class="muted" style="margin-top:6px">Available for internships, collaborations, and junior developer
+            roles.</div>
+        </div>
+        <div class="cta">
+          <a href="mailto:mustafa.hussein1907@gmail.com">Email Me</a>
+          <a href="tel:+201120650700">+20 112 065 0700</a>
+          <a href="https://www.linkedin.com/in/mustafa-hussein-95bb08254" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- CREATIVE CTA -->
+    <section id="cta">
+      <h2>🚀 Ready to Build the Next Big Thing Together?</h2>
+      <p>Let’s turn your ideas into apps that inspire and connect people.</p>
+      <div class="cta-buttons">
+        <a href="mailto:mustafa.hussein1907@gmail.com" class="btn-cta yellow">✉️ Email Me</a>
+        <a href="https://www.linkedin.com/in/mustafa-hussein-95bb08254" target="_blank" class="btn-cta blue">🔗 Connect
+          on LinkedIn</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Mustafa Hussein — Designed with passion • DISC: I (Influence)
+    </footer>
+  </div>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>
